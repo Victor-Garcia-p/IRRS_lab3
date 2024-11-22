@@ -164,8 +164,10 @@ def computePageRanks(airports_list, airport_hash, epsilon=1e-2, L=0.85, max_iter
     return Q
 
 def outputPageRanks():
-    # write your code
-    return 0
+    page_rank_list = [(airport.pageIndex, airport.name) for airport in airportList]
+    page_rank_list.sort(key=lambda x: x[0], reverse=True)
+    
+    return page_rank_list
 
 def main(argv=None):
     readAirports("airports.txt")
@@ -173,8 +175,6 @@ def main(argv=None):
     time1 = time.time()
     iterations = computePageRanks(airportList, airportHash)
     time2 = time.time()
-
-    
     iterations
     """
     outputPageRanks()
